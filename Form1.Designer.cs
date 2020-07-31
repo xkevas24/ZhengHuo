@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonMagicTime = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,16 +37,16 @@
             this.lbmsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button2
+            // buttonMagicTime
             // 
-            this.button2.Location = new System.Drawing.Point(177, 13);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(226, 57);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "整活！";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.buttonMagicTime_Click);
+            this.buttonMagicTime.Location = new System.Drawing.Point(177, 13);
+            this.buttonMagicTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonMagicTime.Name = "buttonMagicTime";
+            this.buttonMagicTime.Size = new System.Drawing.Size(226, 57);
+            this.buttonMagicTime.TabIndex = 1;
+            this.buttonMagicTime.Text = "整活！";
+            this.buttonMagicTime.UseVisualStyleBackColor = true;
+            this.buttonMagicTime.Click += new System.EventHandler(this.buttonMagicTime_Click);
             // 
             // label1
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonMagicTime);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
@@ -122,7 +122,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonMagicTime;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;

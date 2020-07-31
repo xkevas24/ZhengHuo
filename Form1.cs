@@ -42,9 +42,7 @@ namespace ZhengHuo
             {
 
                 MessageBox.Show("炉石传说未运行！请运行游戏后重启程序！","游戏未运行");
-                //button1.Enabled = false;
-                button2.Enabled = false;
-                return;
+                buttonMagicTime.Enabled = false;
 
             }
             else
@@ -76,9 +74,9 @@ namespace ZhengHuo
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (pi != 0)
+            if (pi > 0)
             {
-                pi = pi - 1;
+                pi -= 1;
             }
             else
             {
