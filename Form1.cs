@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Timers;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ZhengHuo
 {   
@@ -20,8 +14,6 @@ namespace ZhengHuo
         }
         public static int pi;
         public static int pi_tmp;
-        private string install_bat = System.IO.Directory.GetCurrentDirectory() + @"\install.bat";
-        private string break_bat = System.IO.Directory.GetCurrentDirectory() + @"\break.bat";
         private string GP;
         public static System.Timers.Timer timer = new System.Timers.Timer()
         {
@@ -30,8 +22,8 @@ namespace ZhengHuo
         private void Form1_Load(object sender, EventArgs e)
         {
             //初始化位置在屏幕右下角
-            int x = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Size.Width - this.Width;
-            int y = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Size.Height - this.Height;
+            int x = Screen.PrimaryScreen.WorkingArea.Size.Width - this.Width;
+            int y = Screen.PrimaryScreen.WorkingArea.Size.Height - this.Height;
             Point p = new Point(x, y);
             this.PointToScreen(p);
             this.Location = p;
@@ -65,20 +57,6 @@ namespace ZhengHuo
             }
         }
 
-        
-        private void Bat_Run(string bat)
-        {
-            System.Diagnostics.ProcessStartInfo info = new System.Diagnostics.ProcessStartInfo("cmd.exe");
-            info.FileName = bat;
-            System.Diagnostics.Process proc = System.Diagnostics.Process.Start(info);
-            proc.WaitForExit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Bat_Run(install_bat);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //1、断线
@@ -91,10 +69,16 @@ namespace ZhengHuo
             
             timer.Start();
             //3、重连
-            timer.Elapsed += new System.Timers.ElapsedEventHandler(tok);
+            timer.Elapsed += Timer_Elapsed;
             //timer.Stop();
 
         }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Reconnect();
+        }
+
         public static int GetPidByProcessName(string processName)
 
         {
@@ -118,7 +102,7 @@ namespace ZhengHuo
             Process[] ps = Process.GetProcessesByName(game_name);
             foreach (Process p in ps)
             {
-                path = p.MainModule.FileName.ToString();
+                path = p.MainModule.FileName;
 
             }
             return path;
@@ -149,12 +133,8 @@ namespace ZhengHuo
                 return output;
             }
         }
-        private static void tok(object source, ElapsedEventArgs e)
-        {
-            reconnect();
-        }
 
-        public static void reconnect()
+        public static void Reconnect()
         {
             if (pi != 0)
             {
