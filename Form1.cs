@@ -72,16 +72,9 @@ namespace ZhengHuo
             timer.Start();
             //3、重连
             timer.Elapsed += Timer_Elapsed;
-            //timer.Stop();
-
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Reconnect();
-        }
-
-        public static void Reconnect()
         {
             if (pi != 0)
             {
@@ -90,17 +83,21 @@ namespace ZhengHuo
             else
             {
                 timer.Stop();
-                string ccc4 = "netsh advfirewall firewall set rule name=\"ZhengHuo\" new enable=no >nul";
-                CmdHelper.RunCmd(ccc4);
-                MessageBox.Show("网络已恢复", "整活");
+                Reconnect();
             }
+        }
+
+        private readonly string StringResumeNetwork = "netsh advfirewall firewall set rule name=\"ZhengHuo\" new enable=no >nul";
+
+        public void Reconnect()
+        {
+            CmdHelper.RunCmd(StringResumeNetwork);
+            MessageBox.Show("网络已恢复", "整活");
         }
 
         private void buttonResumeNetwork_Click(object sender, EventArgs e)
         {
-            string ccc4 = "netsh advfirewall firewall set rule name=\"ZhengHuo\" new enable=no >nul";
-            CmdHelper.RunCmd(ccc4);
-            MessageBox.Show("网络已恢复", "整活");
+            Reconnect();
         }
     }
 }
