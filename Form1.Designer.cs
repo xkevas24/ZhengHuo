@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonResumeNetwork = new System.Windows.Forms.Button();
             this.lbmsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "整活！";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.buttonMagicTime_Click);
             // 
             // label1
             // 
@@ -77,16 +77,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "秒后重连";
             // 
-            // button1
+            // buttonResumeNetwork
             // 
-            this.button1.Location = new System.Drawing.Point(38, 95);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 57);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "网络恢复";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonResumeNetwork.Location = new System.Drawing.Point(38, 95);
+            this.buttonResumeNetwork.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonResumeNetwork.Name = "buttonResumeNetwork";
+            this.buttonResumeNetwork.Size = new System.Drawing.Size(120, 57);
+            this.buttonResumeNetwork.TabIndex = 5;
+            this.buttonResumeNetwork.Text = "网络恢复";
+            this.buttonResumeNetwork.UseVisualStyleBackColor = true;
+            this.buttonResumeNetwork.Click += new System.EventHandler(this.buttonResumeNetwork_Click);
             // 
             // lbmsg
             // 
@@ -104,7 +104,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(408, 192);
             this.Controls.Add(this.lbmsg);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonResumeNetwork);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -126,7 +126,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonResumeNetwork;
         private System.Windows.Forms.Label lbmsg;
     }
 }

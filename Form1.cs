@@ -8,10 +8,6 @@ namespace ZhengHuo
 {   
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
         public static int pi;
         public static int pi_tmp;
         private string GP;
@@ -19,6 +15,11 @@ namespace ZhengHuo
         {
             Interval = 1000
         };
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -58,7 +59,7 @@ namespace ZhengHuo
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonMagicTime_Click(object sender, EventArgs e)
         {
             //1、断线
             string ccc3 = "netsh advfirewall firewall set rule name=\"ZhengHuo\" new program=\"" + GP + "\" enable=yes >nul";
@@ -94,7 +95,8 @@ namespace ZhengHuo
                 MessageBox.Show("网络已恢复", "整活");
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void buttonResumeNetwork_Click(object sender, EventArgs e)
         {
             string ccc4 = "netsh advfirewall firewall set rule name=\"ZhengHuo\" new enable=no >nul";
             CmdHelper.RunCmd(ccc4);
