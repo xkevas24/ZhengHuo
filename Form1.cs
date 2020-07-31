@@ -19,6 +19,7 @@ namespace ZhengHuo
         {
             Interval = 1000
         };
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //初始化位置在屏幕右下角
@@ -35,8 +36,8 @@ namespace ZhengHuo
 
             string name = "Hearthstone";
 
-            if (GetPidByProcessName(name) == 0)
-
+            var processId = ProcessHelper.GetProcessIdByName(name);
+            if (processId == 0)
             {
 
                 MessageBox.Show("炉石传说未运行！请运行游戏后重启程序！","游戏未运行");
@@ -48,7 +49,7 @@ namespace ZhengHuo
             else
             {
                 //获取炉石传说游戏路径
-                GP = game_path("Hearthstone");
+                GP = ProcessHelper.GetProcessPathByName("Hearthstone");
                 //添加整活防火墙 策略
                 //string ccc1 = "netsh advfirewall firewall show rule name=\"ZhengHuo\" >nul";
                 //RunCmd(ccc1);
@@ -77,33 +78,6 @@ namespace ZhengHuo
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Reconnect();
-        }
-
-        public static int GetPidByProcessName(string processName)
-        {
-
-            Process[] arrayProcess = Process.GetProcessesByName(processName);
-            foreach (Process p in arrayProcess)
-            {
-                return p.Id;
-            }
-            return 0;
-        }
-
-        private string game_path(string game_name)
-        {
-            string path = string.Empty;
-
-            Process[] processes = Process.GetProcessesByName(game_name);
-            foreach (Process p in processes)
-            {
-                path = p.MainModule?.FileName;
-                if (!string.IsNullOrEmpty(path))
-                {
-                    break;
-                }
-            }
-            return path;
         }
 
         private static string CmdPath = @"C:\Windows\System32\cmd.exe";
