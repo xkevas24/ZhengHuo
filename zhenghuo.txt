@@ -1,0 +1,8 @@
+
+netsh advfirewall firewall show rule name="ZhengHuo"
+netsh advfirewall firewall add rule name="ZhengHuo" dir=out program="C:\Program Files (x86)\Hearthstone - Copy\Hearthstone.exe" action=block enable=no
+
+netsh advfirewall firewall delete rule name="ZhengHuo"
+
+Deleted 5 rule(s).
+Ok.
