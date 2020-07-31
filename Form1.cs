@@ -80,33 +80,32 @@ namespace ZhengHuo
         }
 
         public static int GetPidByProcessName(string processName)
-
         {
 
             Process[] arrayProcess = Process.GetProcessesByName(processName);
             foreach (Process p in arrayProcess)
-
             {
-
                 return p.Id;
-
             }
-
             return 0;
-
         }
+
         private string game_path(string game_name)
         {
-            string path = "";
+            string path = string.Empty;
 
-            Process[] ps = Process.GetProcessesByName(game_name);
-            foreach (Process p in ps)
+            Process[] processes = Process.GetProcessesByName(game_name);
+            foreach (Process p in processes)
             {
-                path = p.MainModule.FileName;
-
+                path = p.MainModule?.FileName;
+                if (!string.IsNullOrEmpty(path))
+                {
+                    break;
+                }
             }
             return path;
         }
+
         private static string CmdPath = @"C:\Windows\System32\cmd.exe";
         public static string RunCmd(string cmd)
         {
@@ -148,7 +147,7 @@ namespace ZhengHuo
                 MessageBox.Show("网络已恢复", "整活");
             }
         }
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             string ccc4 = "netsh advfirewall firewall set rule name=\"ZhengHuo\" new enable=no >nul";
             RunCmd(ccc4);
