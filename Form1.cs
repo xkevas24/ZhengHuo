@@ -23,7 +23,10 @@ namespace ZhengHuo
         private string install_bat = System.IO.Directory.GetCurrentDirectory() + @"\install.bat";
         private string break_bat = System.IO.Directory.GetCurrentDirectory() + @"\break.bat";
         private string GP;
-        public static System.Timers.Timer timer = new System.Timers.Timer();
+        public static System.Timers.Timer timer = new System.Timers.Timer()
+        {
+            Interval = 1000
+        };
         private void Form1_Load(object sender, EventArgs e)
         {
             //初始化位置在屏幕右下角
@@ -55,10 +58,10 @@ namespace ZhengHuo
                 //获取炉石传说游戏路径
                 GP = game_path("Hearthstone");
                 //添加整活防火墙 策略
-                string ccc1 = "netsh advfirewall firewall show rule name=\"ZhengHuo\" >nul";
-                RunCmd(ccc1);
-                string ccc2 = "netsh advfirewall firewall add rule name=\"ZhengHuo\" dir=out program=\""+GP+"\" action=block enable=no >nul";
-                RunCmd(ccc2);
+                //string ccc1 = "netsh advfirewall firewall show rule name=\"ZhengHuo\" >nul";
+                //RunCmd(ccc1);
+                //string ccc2 = "netsh advfirewall firewall add rule name=\"ZhengHuo\" dir=out program=\""+GP+"\" action=block enable=no >nul";
+                //RunCmd(ccc2);
             }
         }
 
