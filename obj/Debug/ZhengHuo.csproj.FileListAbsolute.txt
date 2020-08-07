@@ -1,8 +1,0 @@
-H:\整活\ZhengHuo\obj\Debug\ZhengHuo.Form1.resources
-H:\整活\ZhengHuo\obj\Debug\ZhengHuo.Properties.Resources.resources
-H:\整活\ZhengHuo\obj\Debug\ZhengHuo.csproj.GenerateResource.cache
-H:\整活\ZhengHuo\obj\Debug\ZhengHuo.csproj.CoreCompileInputs.cache
-H:\整活\ZhengHuo\obj\Debug\ZhengHuo.exe
-H:\整活\ZhengHuo\obj\Debug\ZhengHuo.pdb
-H:\整活\ZhengHuo\bin\Debug\ZhengHuo.exe
-H:\整活\ZhengHuo\bin\Debug\ZhengHuo.pdb
